@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23f08d2ae4cba14087c1ed36193d82b, type: 3}
+  m_Name: ComboState_MountTransition
+  m_EditorClassIdentifier: 
+  mBehaviorSource:
+    behaviorName: Behavior
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(376.169922,155)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(0.169921875,140)"},"ID":1,"Name":"Mount
+        And Unmount Behavior","Instant":true,"AbortTypeabortType":"LowerPriority","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.BehaviorTreeReference","NodeData":{"Offset":"(-242.73616,145.624817)"},"ID":2,"Name":"State_ProcessEnterMount","Instant":true,"ExternalBehavior[]externalBehaviors":[0],"SharedNamedVariable[]variables":[],"Booleancollapsed":false},{"Type":"BehaviorDesigner.Runtime.Tasks.BehaviorTreeReference","NodeData":{"Offset":"(238.749847,159.999985)"},"ID":3,"Name":"State_ProcessExitMount","Instant":true,"ExternalBehavior[]externalBehaviors":[1],"SharedNamedVariable[]variables":[],"Booleancollapsed":false}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"ThisTransform","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"OwnerTransform","IsShared":true},{"Type":"SharedAnimator","Name":"Animator","IsShared":true},{"Type":"SharedCharacter","Name":"ThisCharacter","IsShared":true},{"Type":"SharedCharacter","Name":"OwnerCharacter","IsShared":true},{"Type":"SharedCompanionAIContext","Name":"CompanionAIContext","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"FollowDistance","IsShared":true,"SinglemValue":0}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects:
+        - {fileID: 11400000, guid: 7522735351597184298e9b34c0537ff4, type: 2}
+        - {fileID: 11400000, guid: b6e88a6683d445e48b5de4beb3612635, type: 2}
+        byteData: 
+        byteDataArray: 
+      Version: 1.7.12

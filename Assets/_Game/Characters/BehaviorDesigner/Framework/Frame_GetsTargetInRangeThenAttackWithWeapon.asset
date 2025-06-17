@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23f08d2ae4cba14087c1ed36193d82b, type: 3}
+  m_Name: Frame_GetsTargetInRangeThenAttackWithWeapon
+  m_EditorClassIdentifier: 
+  mBehaviorSource:
+    behaviorName: Behavior
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(738.394958,134.6774)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-3.632141,115.488052)"},"ID":1,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"TriggerCompanionActionEvent","NodeData":{"Offset":"(-344.516754,111.704346)"},"ID":2,"Name":"Trigger
+        Companion Action Event","Instant":true,"SharedCharacterEventInvoker":{"Type":"SharedCharacter","Name":"ThisCharacter","IsShared":true},"MMCompanionActionEventTypesEventType":"OnAttackLoopStart"},{"Type":"BehaviorDesigner.Runtime.Tasks.BehaviorTreeReference","NodeData":{"Offset":"(-139.802567,112.162109)"},"ID":3,"Name":"MovesTowardTarget","Instant":true,"ExternalBehavior[]externalBehaviors":[0],"SharedNamedVariable[]variables":[],"Booleancollapsed":false},{"Type":"BehaviorDesigner.Runtime.Tasks.BehaviorTreeReference","NodeData":{"Offset":"(16.2950134,111.704254)"},"ID":4,"Name":"FaceCurrentTarget","Instant":true,"ExternalBehavior[]externalBehaviors":[1],"SharedNamedVariable[]variables":[],"Booleancollapsed":false},{"Type":"BehaviorDesigner.Runtime.Tasks.BehaviorTreeReference","NodeData":{"Offset":"(177.659485,113.500854)"},"ID":5,"Name":"Behavior
+        Tree Reference","Instant":true,"ExternalBehavior[]externalBehaviors":[2],"SharedNamedVariable[]variables":[],"Booleancollapsed":false},{"Type":"BehaviorDesigner.Runtime.Tasks.BehaviorTreeReference","NodeData":{"Offset":"(337.519073,111.704315)"},"ID":6,"Name":"AttackWithWeapon","Instant":true,"ExternalBehavior[]externalBehaviors":[3],"SharedNamedVariable[]variables":[],"Booleancollapsed":false}]},"Variables":[{"Type":"SharedWeaponLibrary","Name":"WeaponLibrary","IsShared":true},{"Type":"SharedCharacter","Name":"ThisCharacter","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"AttackDistance","IsShared":true,"SinglemValue":0}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects:
+        - {fileID: 11400000, guid: be9be7c627cc66f48beb82a540c8fb7f, type: 2}
+        - {fileID: 11400000, guid: 5ac657e66de89f447a89ef8bf91dd0d8, type: 2}
+        - {fileID: 11400000, guid: 56f58340409f46849adab22284a638d5, type: 2}
+        - {fileID: 11400000, guid: 19eefa496b42828409983122cefc3293, type: 2}
+        byteData: 
+        byteDataArray: 
+      Version: 1.7.12

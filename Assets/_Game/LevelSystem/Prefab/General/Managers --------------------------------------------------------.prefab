@@ -1,0 +1,698 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &414119017007494089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2877832505095177693}
+  - component: {fileID: 107622603298556082}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2877832505095177693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414119017007494089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1521796753474820422}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &107622603298556082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414119017007494089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7de9ef06f04864391a928af29f4b46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalTimeScale: 1
+  UpdateTimescale: 1
+  UpdateFixedDeltaTime: 1
+  UpdateMaximumDeltaTime: 1
+  CurrentTimeScale: 1
+  TargetTimeScale: 1
+  TestButton: 0
+--- !u!1 &707001073306269923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1521796753474820422}
+  m_Layer: 0
+  m_Name: Managers --------------------------------------------------------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1521796753474820422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707001073306269923}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1452622053300798565}
+  - {fileID: 2847048810038896506}
+  - {fileID: 2877832505095177693}
+  - {fileID: 8986300709677345694}
+  - {fileID: 1013568999351305363}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1798583511425790705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7059318323623312997}
+  - component: {fileID: 4461837482164511738}
+  m_Layer: 0
+  m_Name: KoalaWeaponInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7059318323623312997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798583511425790705}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 72.81253, y: 1.4152489, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2847048810038896506}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4461837482164511738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798583511425790705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286d1c3722a3a0749afb21ea8728d132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerID: Player1
+  Content:
+  - {fileID: 0}
+  InventoryType: 1
+  TargetTransform: {fileID: 0}
+  Persistent: 1
+  ResetThisInventorySaveOnStart: 0
+  DrawContentInInspector: 1
+--- !u!1 &2413340793600159241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2847048810038896506}
+  m_Layer: 0
+  m_Name: Inventories
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2847048810038896506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2413340793600159241}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -70.62122, y: -6.095249, z: -9.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2705385884607069980}
+  - {fileID: 7059318323623312997}
+  m_Father: {fileID: 1521796753474820422}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3327599681429715015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1013568999351305363}
+  - component: {fileID: 6867095371633084789}
+  m_Layer: 0
+  m_Name: 'TilemapLevelGenerator '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1013568999351305363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327599681429715015}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1521796753474820422}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6867095371633084789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327599681429715015}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c0e5eb235e5b94192233ff9c25fee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GridWidth: {x: 10, y: 10}
+  GridHeight: {x: 10, y: 10}
+  Layers:
+    array:
+    - Name: Grass
+      Active: 1
+      TargetTilemap: {fileID: 0}
+      Tile: {fileID: 11400000, guid: 3d835d80a70a4444db68c96c06a63738, type: 2}
+      OverrideGridSize: 0
+      GridWidth: 50
+      GridHeight: 50
+      GenerateMethod: 0
+      DoNotUseGlobalSeed: 0
+      RandomizeSeed: 1
+      Seed: 1884417800
+      Smooth: 0
+      InvertGrid: 0
+      FusionMode: 0
+      FullGenerationFilled: 1
+      RandomFillPercentage: 50
+      RandomWalkGroundMinHeightDifference: 1
+      RandomWalkGroundMaxHeightDifference: 3
+      RandomWalkGroundMinFlatDistance: 1
+      RandomWalkGroundMaxFlatDistance: 3
+      RandomWalkGroundMaxHeight: 3
+      RandomWalkPercent: 50
+      RandomWalkStartingPoint: {x: 0, y: 0}
+      RandomWalkMaxIterations: 1500
+      RandomWalkAvoiderPercent: 50
+      RandomWalkAvoiderStartingPoint: {x: 0, y: 0}
+      RandomWalkAvoiderObstaclesTilemap: {fileID: 0}
+      RandomWalkAvoiderObstaclesDistance: 1
+      RandomWalkAvoiderMaxIterations: 100
+      PathStartPosition: {x: 0, y: 0}
+      PathDirection: 2
+      PathMinWidth: 2
+      PathMaxWidth: 4
+      PathDirectionChangeDistance: 2
+      PathWidthChangePercentage: 50
+      PathDirectionChangePercentage: 50
+      CopyTilemap: {fileID: 0}
+      BoundsTop: 0
+      BoundsBottom: 0
+      BoundsLeft: 0
+      BoundsRight: 0
+      SafeSpots: []
+      Initialized: 1
+    - Name: GroundTiles
+      Active: 1
+      TargetTilemap: {fileID: 0}
+      Tile: {fileID: 11400000, guid: 4afa1bbd3a2ee9443b199d2089f0de63, type: 2}
+      OverrideGridSize: 0
+      GridWidth: 50
+      GridHeight: 50
+      GenerateMethod: 3
+      DoNotUseGlobalSeed: 0
+      RandomizeSeed: 1
+      Seed: 842077051
+      Smooth: 0
+      InvertGrid: 0
+      FusionMode: 0
+      FullGenerationFilled: 1
+      RandomFillPercentage: 20
+      RandomWalkGroundMinHeightDifference: 1
+      RandomWalkGroundMaxHeightDifference: 3
+      RandomWalkGroundMinFlatDistance: 1
+      RandomWalkGroundMaxFlatDistance: 3
+      RandomWalkGroundMaxHeight: 3
+      RandomWalkPercent: 50
+      RandomWalkStartingPoint: {x: 0, y: 0}
+      RandomWalkMaxIterations: 1500
+      RandomWalkAvoiderPercent: 50
+      RandomWalkAvoiderStartingPoint: {x: 5, y: 5}
+      RandomWalkAvoiderObstaclesTilemap: {fileID: 0}
+      RandomWalkAvoiderObstaclesDistance: 3
+      RandomWalkAvoiderMaxIterations: 100
+      PathStartPosition: {x: 10, y: 10}
+      PathDirection: 1
+      PathMinWidth: 2
+      PathMaxWidth: 4
+      PathDirectionChangeDistance: 2
+      PathWidthChangePercentage: 50
+      PathDirectionChangePercentage: 50
+      CopyTilemap: {fileID: 0}
+      BoundsTop: 1
+      BoundsBottom: 1
+      BoundsLeft: 1
+      BoundsRight: 1
+      SafeSpots: []
+      Initialized: 1
+    - Name: Walls Random Walk
+      Active: 1
+      TargetTilemap: {fileID: 0}
+      Tile: {fileID: 11400000, guid: 81c4b33e3b055d14b9e3e201f9dbb8d7, type: 2}
+      OverrideGridSize: 0
+      GridWidth: 50
+      GridHeight: 50
+      GenerateMethod: 3
+      DoNotUseGlobalSeed: 0
+      RandomizeSeed: 1
+      Seed: 2000128844
+      Smooth: 0
+      InvertGrid: 0
+      FusionMode: 0
+      FullGenerationFilled: 1
+      RandomFillPercentage: 0
+      RandomWalkGroundMinHeightDifference: 1
+      RandomWalkGroundMaxHeightDifference: 3
+      RandomWalkGroundMinFlatDistance: 1
+      RandomWalkGroundMaxFlatDistance: 3
+      RandomWalkGroundMaxHeight: 3
+      RandomWalkPercent: 0
+      RandomWalkStartingPoint: {x: 5, y: 5}
+      RandomWalkMaxIterations: 1
+      RandomWalkAvoiderPercent: 50
+      RandomWalkAvoiderStartingPoint: {x: 0, y: 0}
+      RandomWalkAvoiderObstaclesTilemap: {fileID: 0}
+      RandomWalkAvoiderObstaclesDistance: 1
+      RandomWalkAvoiderMaxIterations: 100
+      PathStartPosition: {x: 0, y: 0}
+      PathDirection: 1
+      PathMinWidth: 2
+      PathMaxWidth: 4
+      PathDirectionChangeDistance: 2
+      PathWidthChangePercentage: 50
+      PathDirectionChangePercentage: 50
+      CopyTilemap: {fileID: 0}
+      BoundsTop: 1
+      BoundsBottom: 1
+      BoundsLeft: 1
+      BoundsRight: 1
+      SafeSpots: []
+      Initialized: 1
+  GlobalSeed: 1383214062
+  RandomizeGlobalSeed: 1
+  SlowRender: 0
+  SlowRenderDuration: 1
+  SlowRenderTweenType:
+    MMTweenDefinitionType: 0
+    MMTweenCurve: 6
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    Initialized: 0
+    ConditionPropertyName: 
+    EnumConditionPropertyName: 
+    EnumConditions: 0000000000000000000000000000000000000000000000000000000000000000
+  GenerateOnAwake: 0
+  TargetGrid: {fileID: 0}
+  ObstaclesTilemap: {fileID: 0}
+  WallsShadowTilemap: {fileID: 0}
+  TargetLevelManager: {fileID: 5496464758429089081}
+  InitialSpawn: {fileID: 0}
+  Exit: {fileID: 0}
+  MinDistanceFromSpawnToExit: 1
+  PrefabsToSpawn: []
+  PrefabsSpawnMinDistance: 2
+--- !u!1 &4208536862740305881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705385884607069980}
+  - component: {fileID: 6914122209756814012}
+  m_Layer: 0
+  m_Name: KoalaMainInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2705385884607069980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4208536862740305881}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 72.81253, y: 1.4152489, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2847048810038896506}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6914122209756814012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4208536862740305881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286d1c3722a3a0749afb21ea8728d132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerID: Player1
+  Content:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  InventoryType: 0
+  TargetTransform: {fileID: 0}
+  Persistent: 1
+  ResetThisInventorySaveOnStart: 0
+  DrawContentInInspector: 1
+--- !u!1 &6401164798040034322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8986300709677345694}
+  - component: {fileID: 4107912893155934188}
+  m_Layer: 0
+  m_Name: AchievementRules
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8986300709677345694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6401164798040034322}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1521796753474820422}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4107912893155934188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6401164798040034322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5a5ae18d78bbe4fa4fd5448234ff14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AchievementList: {fileID: 11400000, guid: 18225175314a9854581d8d6262302958, type: 2}
+  PrintCurrentStatusBtn: 0
+--- !u!1 &7503134484553263752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1452622053300798565}
+  - component: {fileID: 5496464758429089081}
+  - component: {fileID: 6081263976340036632}
+  m_Layer: 14
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1452622053300798565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7503134484553263752}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1521796753474820422}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5496464758429089081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7503134484553263752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e997f38a2e2884e89b9bd8ad830fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AutoAttributePlayerIDs: 1
+  PlayerPrefabs: []
+  SceneCharacters: []
+  InitialSpawnPoint: {fileID: 0}
+  CurrentCheckpoint: {fileID: 0}
+  PointsOfEntry: []
+  IntroFadeDuration: 0.1
+  SpawnDelay: 0
+  OutroFadeDuration: 0.1
+  FaderID: 0
+  FadeCurve:
+    MMTweenDefinitionType: 0
+    MMTweenCurve: 6
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    Initialized: 0
+    ConditionPropertyName: 
+    EnumConditionPropertyName: 
+    EnumConditions: 0000000000000000000000000000000000000000000000000000000000000000
+  RespawnDelay: 2
+  DelayBeforeDeathScreen: 1
+  UseLevelBounds: 1
+  LoadingSceneMode: 1
+  LoadingSceneName: LoadingScreen
+  AdditiveLoadingSettings:
+    LoadingSceneName: MMAdditiveLoadingScreen
+    ThreadPriority: 4
+    SecureLoad: 1
+    InterpolateProgress: 1
+    BeforeEntryFadeDelay: 0
+    EntryFadeDuration: 0.25
+    AfterEntryFadeDelay: 0.1
+    BeforeSceneActivationDelay: 0.25
+    AfterSceneActivationDelay: 0
+    ExitFadeDuration: 0.2
+    EntryFadeTween:
+      MMTweenDefinitionType: 0
+      MMTweenCurve: 0
+      Curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      Initialized: 0
+      ConditionPropertyName: 
+      EnumConditionPropertyName: 
+      EnumConditions: 
+    ExitFadeTween:
+      MMTweenDefinitionType: 0
+      MMTweenCurve: 0
+      Curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      Initialized: 0
+      ConditionPropertyName: 
+      EnumConditionPropertyName: 
+      EnumConditions: 
+    ProgressBarSpeed: 5
+    SpeedIntervals: []
+    DebugMode: 0
+    FadeMode: 0
+    UnloadMethod: 2
+    AntiSpillSceneName: 
+  SetPlayerAsFeedbackRangeCenter: 0
+--- !u!61 &6081263976340036632
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7503134484553263752}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -1, y: -1}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 10, y: 10}
+  m_EdgeRadius: 0
