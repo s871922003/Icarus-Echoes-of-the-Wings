@@ -4,15 +4,8 @@ using MoreMountains.Tools;
 
 public enum MMCompanionActionEventTypes
 {
-    OnGetOnMountComplete,
-    OnGetOffMountComplete,
     OnMarkActionStart,
     OnMarkActionEnd,
-    OnMountStart,
-    OnMountComplete,
-    OnAttackLoopStart,
-    OnAttackLoopEnd,
-    OnTargetSearchStart
 }
 
 public struct MMCompanionActionEvent

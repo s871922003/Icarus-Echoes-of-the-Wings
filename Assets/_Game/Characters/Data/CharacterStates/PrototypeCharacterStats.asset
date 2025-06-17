@@ -13,18 +13,5 @@ MonoBehaviour:
   m_Name: PrototypeCharacterStats
   m_EditorClassIdentifier: 
   BaseHealth: 100
-  MoveSpeed: 6
-  RunSpeed: 9
-  AttackInterval: 1
-  FollowDistance: 1
-  AttackDistance: 3
-  StaminaRegenRate: 2
-  BasePoundDistance: 8
-  PoundSpeed: 10
-  ForceRecallRange: 10
-  MaxStamina: 1000
-  EnergyConsumptionTable:
-  - ActionType: 0
-    EnergyCost: 80
-  - ActionType: 1
-    EnergyCost: 5
+  WalkSpeed: 5
+  FollowDistance: 1.5

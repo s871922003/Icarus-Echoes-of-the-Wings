@@ -62,9 +62,8 @@ namespace MoreMountains.TopDownEngine
             InputActions.PlayerControls.SwitchCharacter.performed += context => { BindButton(context, SwitchCharacterButton); };
             InputActions.PlayerControls.TimeControl.performed += context => { BindButton(context, TimeControlButton); };
 
-            InputActions.PlayerControls.CompanionActiveSwitch.performed += context => { BindButton(context, CompanionActiveSwitch); };
+
             InputActions.PlayerControls.CompanionCommandMark.performed += context => { BindButton(context, CompanionCommandMark); };
-            InputActions.PlayerControls.CompanionCommandMountToggle.performed += context => { BindButton(context, CompanionCommandMountToggle); };
         }
 
         protected virtual void TestForceDesktop()

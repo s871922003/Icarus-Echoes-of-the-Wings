@@ -141,27 +141,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "CompanionActiveSwitch",
-                    "type": "Button",
-                    "id": "78fc3f24-ae93-4253-b511-31d4523280a5",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "CompanionCommandMark",
                     "type": "Button",
                     "id": "dd32f102-e326-4547-8db1-2857dbb0ea1f",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "CompanionCommandMountToggle",
-                    "type": "Button",
-                    "id": "3a71db8e-8655-4ad8-917f-7ab05fde3348",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -501,34 +483,12 @@
                 },
                 {
                     "name": "",
-                    "id": "1bfbd995-8d97-4a3e-ae20-9aec7189355c",
-                    "path": "<Keyboard>/leftCtrl",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CompanionActiveSwitch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "88ba05e7-bd23-441e-956a-d21a2731b47e",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "CompanionCommandMark",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "44ab0158-a35c-44b1-9758-41da52a549c1",
-                    "path": "<Keyboard>/space",
-                    "interactions": "Hold",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CompanionCommandMountToggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

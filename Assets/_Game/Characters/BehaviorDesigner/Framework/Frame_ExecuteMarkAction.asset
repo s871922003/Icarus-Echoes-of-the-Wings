@@ -21,24 +21,13 @@ MonoBehaviour:
       startIndex: 
       variableStartIndex: 
       JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(115.169922,85)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(4.285568,122.857254)"},"ID":1,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Self","Children":[{"Type":"TriggerCompanionActionEvent","NodeData":{"Offset":"(-538.930054,125)"},"ID":2,"Name":"Trigger
-        Companion Action Event","Instant":true,"SharedCharacterEventInvoker":{"Type":"SharedCharacter","Name":"ThisCharacter","IsShared":true},"MMCompanionActionEventTypesEventType":"OnMarkActionStart"},{"Type":"BehaviorDesigner.Runtime.Tasks.BehaviorTreeReference","NodeData":{"Offset":"(-370.1166,134.695053)"},"ID":3,"Name":"Repositioning","Instant":true,"ExternalBehavior[]externalBehaviors":[0],"SharedNamedVariable[]variables":[],"Booleancollapsed":false},{"Type":"BehaviorDesigner.Runtime.Tasks.BehaviorTreeReference","NodeData":{"Offset":"(-234.023514,130.483582)"},"ID":4,"Name":"Try
-        acquire target","Instant":true,"ExternalBehavior[]externalBehaviors":[1],"SharedNamedVariable[]variables":[],"Booleancollapsed":false},{"Type":"BehaviorDesigner.Runtime.Tasks.BehaviorTreeReference","NodeData":{"Offset":"(-74.99136,127.257729)"},"ID":5,"Name":"Adjust
-        face direction","Instant":true,"ExternalBehavior[]externalBehaviors":[2],"SharedNamedVariable[]variables":[],"Booleancollapsed":false},{"Type":"BehaviorDesigner.Runtime.Tasks.BehaviorTreeReference","NodeData":{"Offset":"(113.548294,133.870972)"},"ID":6,"Name":"Switch
-        to pound weapon","Instant":true,"ExternalBehavior[]externalBehaviors":[3],"SharedNamedVariable[]variables":[],"Booleancollapsed":false},{"Type":"BehaviorDesigner.Runtime.Tasks.BehaviorTreeReference","NodeData":{"Offset":"(287.4193,130)"},"ID":7,"Name":"Shoot
-        current weapon","Instant":true,"ExternalBehavior[]externalBehaviors":[4],"SharedNamedVariable[]variables":[],"Booleancollapsed":false},{"Type":"BehaviorDesigner.Runtime.Tasks.BehaviorTreeReference","NodeData":{"Offset":"(485.673523,130)"},"ID":8,"Name":"Switch
-        to default weapon","Instant":true,"ExternalBehavior[]externalBehaviors":[5],"SharedNamedVariable[]variables":[],"Booleancollapsed":false}]},"Variables":[{"Type":"SharedCharacter","Name":"ThisCharacter","IsShared":true},{"Type":"SharedWeaponLibrary","Name":"WeaponLibrary","IsShared":true},{"Type":"SharedCompanionAIContext","Name":"CompanionAIContext","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"CurrentTarget","IsShared":true}]}'
+        Companion Action Event","Instant":true,"SharedCharacterEventInvoker":{"Type":"SharedCharacter","Name":"ThisCharacter","IsShared":true},"MMCompanionActionEventTypesEventType":"OnMarkActionStart"}]},"Variables":[{"Type":"SharedCharacter","Name":"ThisCharacter","IsShared":true},{"Type":"SharedCompanionAIContext","Name":"CompanionAIContext","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"CurrentTarget","IsShared":true}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
         startIndex: 
         dataPosition: 
-        unityObjects:
-        - {fileID: 11400000, guid: c88c6c361a4a1144e97093d5b2ffbfff, type: 2}
-        - {fileID: 11400000, guid: 777fe41cd381d504da010d6b26915c17, type: 2}
-        - {fileID: 11400000, guid: 5ac657e66de89f447a89ef8bf91dd0d8, type: 2}
-        - {fileID: 11400000, guid: 6691c46eed4864e48879e61599660066, type: 2}
-        - {fileID: 11400000, guid: 19eefa496b42828409983122cefc3293, type: 2}
-        - {fileID: 11400000, guid: 56f58340409f46849adab22284a638d5, type: 2}
+        unityObjects: []
         byteData: 
         byteDataArray: 
       Version: 1.7.12

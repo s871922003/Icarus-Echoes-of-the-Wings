@@ -165,27 +165,9 @@ namespace MoreMountains.TopDownEngine
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""CompanionActiveSwitch"",
-                    ""type"": ""Button"",
-                    ""id"": ""78fc3f24-ae93-4253-b511-31d4523280a5"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""CompanionCommandMark"",
                     ""type"": ""Button"",
                     ""id"": ""dd32f102-e326-4547-8db1-2857dbb0ea1f"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""CompanionCommandMountToggle"",
-                    ""type"": ""Button"",
-                    ""id"": ""3a71db8e-8655-4ad8-917f-7ab05fde3348"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -525,34 +507,12 @@ namespace MoreMountains.TopDownEngine
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1bfbd995-8d97-4a3e-ae20-9aec7189355c"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CompanionActiveSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""88ba05e7-bd23-441e-956a-d21a2731b47e"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""CompanionCommandMark"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""44ab0158-a35c-44b1-9758-41da52a549c1"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CompanionCommandMountToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -606,9 +566,7 @@ namespace MoreMountains.TopDownEngine
             m_PlayerControls_SwitchCharacter = m_PlayerControls.FindAction("SwitchCharacter", throwIfNotFound: true);
             m_PlayerControls_TimeControl = m_PlayerControls.FindAction("TimeControl", throwIfNotFound: true);
             m_PlayerControls_CameraRotation = m_PlayerControls.FindAction("CameraRotation", throwIfNotFound: true);
-            m_PlayerControls_CompanionActiveSwitch = m_PlayerControls.FindAction("CompanionActiveSwitch", throwIfNotFound: true);
             m_PlayerControls_CompanionCommandMark = m_PlayerControls.FindAction("CompanionCommandMark", throwIfNotFound: true);
-            m_PlayerControls_CompanionCommandMountToggle = m_PlayerControls.FindAction("CompanionCommandMountToggle", throwIfNotFound: true);
         }
 
         ~@TopDownEngineInputActions()
@@ -690,9 +648,7 @@ namespace MoreMountains.TopDownEngine
         private readonly InputAction m_PlayerControls_SwitchCharacter;
         private readonly InputAction m_PlayerControls_TimeControl;
         private readonly InputAction m_PlayerControls_CameraRotation;
-        private readonly InputAction m_PlayerControls_CompanionActiveSwitch;
         private readonly InputAction m_PlayerControls_CompanionCommandMark;
-        private readonly InputAction m_PlayerControls_CompanionCommandMountToggle;
         public struct PlayerControlsActions
         {
             private @TopDownEngineInputActions m_Wrapper;
@@ -712,9 +668,7 @@ namespace MoreMountains.TopDownEngine
             public InputAction @SwitchCharacter => m_Wrapper.m_PlayerControls_SwitchCharacter;
             public InputAction @TimeControl => m_Wrapper.m_PlayerControls_TimeControl;
             public InputAction @CameraRotation => m_Wrapper.m_PlayerControls_CameraRotation;
-            public InputAction @CompanionActiveSwitch => m_Wrapper.m_PlayerControls_CompanionActiveSwitch;
             public InputAction @CompanionCommandMark => m_Wrapper.m_PlayerControls_CompanionCommandMark;
-            public InputAction @CompanionCommandMountToggle => m_Wrapper.m_PlayerControls_CompanionCommandMountToggle;
             public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -769,15 +723,9 @@ namespace MoreMountains.TopDownEngine
                 @CameraRotation.started += instance.OnCameraRotation;
                 @CameraRotation.performed += instance.OnCameraRotation;
                 @CameraRotation.canceled += instance.OnCameraRotation;
-                @CompanionActiveSwitch.started += instance.OnCompanionActiveSwitch;
-                @CompanionActiveSwitch.performed += instance.OnCompanionActiveSwitch;
-                @CompanionActiveSwitch.canceled += instance.OnCompanionActiveSwitch;
                 @CompanionCommandMark.started += instance.OnCompanionCommandMark;
                 @CompanionCommandMark.performed += instance.OnCompanionCommandMark;
                 @CompanionCommandMark.canceled += instance.OnCompanionCommandMark;
-                @CompanionCommandMountToggle.started += instance.OnCompanionCommandMountToggle;
-                @CompanionCommandMountToggle.performed += instance.OnCompanionCommandMountToggle;
-                @CompanionCommandMountToggle.canceled += instance.OnCompanionCommandMountToggle;
             }
 
             private void UnregisterCallbacks(IPlayerControlsActions instance)
@@ -827,15 +775,9 @@ namespace MoreMountains.TopDownEngine
                 @CameraRotation.started -= instance.OnCameraRotation;
                 @CameraRotation.performed -= instance.OnCameraRotation;
                 @CameraRotation.canceled -= instance.OnCameraRotation;
-                @CompanionActiveSwitch.started -= instance.OnCompanionActiveSwitch;
-                @CompanionActiveSwitch.performed -= instance.OnCompanionActiveSwitch;
-                @CompanionActiveSwitch.canceled -= instance.OnCompanionActiveSwitch;
                 @CompanionCommandMark.started -= instance.OnCompanionCommandMark;
                 @CompanionCommandMark.performed -= instance.OnCompanionCommandMark;
                 @CompanionCommandMark.canceled -= instance.OnCompanionCommandMark;
-                @CompanionCommandMountToggle.started -= instance.OnCompanionCommandMountToggle;
-                @CompanionCommandMountToggle.performed -= instance.OnCompanionCommandMountToggle;
-                @CompanionCommandMountToggle.canceled -= instance.OnCompanionCommandMountToggle;
             }
 
             public void RemoveCallbacks(IPlayerControlsActions instance)
@@ -888,9 +830,7 @@ namespace MoreMountains.TopDownEngine
             void OnSwitchCharacter(InputAction.CallbackContext context);
             void OnTimeControl(InputAction.CallbackContext context);
             void OnCameraRotation(InputAction.CallbackContext context);
-            void OnCompanionActiveSwitch(InputAction.CallbackContext context);
             void OnCompanionCommandMark(InputAction.CallbackContext context);
-            void OnCompanionCommandMountToggle(InputAction.CallbackContext context);
         }
     }
 }

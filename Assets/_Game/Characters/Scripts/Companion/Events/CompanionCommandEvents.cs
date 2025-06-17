@@ -1,6 +1,3 @@
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using MoreMountains.Tools;
 using MoreMountains.TopDownEngine;
 
@@ -8,8 +5,6 @@ using MoreMountains.TopDownEngine;
 public enum MMCompanionCommandEventTypes
 {
     MarkAction,
-    SwitchActive,
-    MountAndUnmountAction
 }
 
 public struct MMCompanionCommandEvent

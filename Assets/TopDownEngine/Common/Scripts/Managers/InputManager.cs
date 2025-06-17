@@ -250,9 +250,9 @@ namespace MoreMountains.TopDownEngine
 			ButtonList.Add(PauseButton = new MMInput.IMButton(PlayerID, "Pause", PauseButtonDown, PauseButtonPressed, PauseButtonUp));
 			ButtonList.Add(TimeControlButton = new MMInput.IMButton(PlayerID, "TimeControl", TimeControlButtonDown, TimeControlButtonPressed, TimeControlButtonUp));
 			ButtonList.Add(SwitchCharacterButton = new MMInput.IMButton(PlayerID, "SwitchCharacter", SwitchCharacterButtonDown, SwitchCharacterButtonPressed, SwitchCharacterButtonUp));
-            ButtonList.Add(CompanionActiveSwitch = new MMInput.IMButton(PlayerID, "CompanionSwitch", CompanionSwitchButtonDown, CompanionSwitchButtonPressed, CompanionSwitchButtonUp));
+
             ButtonList.Add(CompanionCommandMark = new MMInput.IMButton(PlayerID, "CompanionMarkAction", CompanionCommandMarkButtonDown, CompanionCommandMarkButtonPressed, CompanionCommandMarkButtonUp));
-            ButtonList.Add(CompanionCommandMountToggle = new MMInput.IMButton(PlayerID, "MountToggle", CompanionCommandMountToggleButtonDown, CompanionCommandMountToggleButtonPressed, CompanionCommandMountToggleButtonUp));
+
         }
 
 		/// <summary>
@@ -691,16 +691,12 @@ namespace MoreMountains.TopDownEngine
 		public virtual void SwitchCharacterButtonPressed() { SwitchCharacterButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
 		public virtual void SwitchCharacterButtonUp() { SwitchCharacterButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
 
-		public virtual void CompanionSwitchButtonDown() { CompanionActiveSwitch.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
-        public virtual void CompanionSwitchButtonPressed() { CompanionActiveSwitch.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
-        public virtual void CompanionSwitchButtonUp() { CompanionActiveSwitch.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
+
 
         public virtual void CompanionCommandMarkButtonDown() { CompanionCommandMark.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
         public virtual void CompanionCommandMarkButtonPressed() { CompanionCommandMark.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
         public virtual void CompanionCommandMarkButtonUp() { CompanionCommandMark.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
 
-        public virtual void CompanionCommandMountToggleButtonDown() { CompanionCommandMountToggle.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
-        public virtual void CompanionCommandMountToggleButtonPressed() { CompanionCommandMountToggle.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
-        public virtual void CompanionCommandMountToggleButtonUp() { CompanionCommandMountToggle.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
+
     }
 }
