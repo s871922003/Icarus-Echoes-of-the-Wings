@@ -4,7 +4,7 @@ using MoreMountains.TopDownEngine;
 
 public enum MMCompanionCommandEventTypes
 {
-    MarkAction,
+    CommandAction,
 }
 
 public struct MMCompanionCommandEvent

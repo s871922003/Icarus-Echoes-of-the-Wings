@@ -4,8 +4,8 @@ using MoreMountains.Tools;
 
 public enum MMCompanionActionEventTypes
 {
-    OnMarkActionStart,
-    OnMarkActionEnd,
+    OnCommandActionStart,
+    OnCommandActionEnd,
 }
 
 public struct MMCompanionActionEvent

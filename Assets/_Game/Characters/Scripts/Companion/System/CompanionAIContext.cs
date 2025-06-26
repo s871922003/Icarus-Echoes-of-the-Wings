@@ -14,11 +14,8 @@ public class CompanionAIContext : MonoBehaviour, MMEventListener<MMCompanionComm
     public BehaviorTree behaviorTree;
     protected Character _character;
     private Animator _animator;
+    public CommandActionExecutor CommandExecutor { get; private set; }
 
-    public float MarkActionCooldownDuration = 1.5f;
-
-    [Header("Flags")]
-    public bool IsMarkActionOnCooldown { get; private set; } = false;
 
     public CompanionBehaviorState CurrentBehaviorState;
     CompanionBehaviorState LastBehaviorState;
@@ -27,7 +24,7 @@ public class CompanionAIContext : MonoBehaviour, MMEventListener<MMCompanionComm
     {
         None,
         NoOwner,
-        MarkAction,
+        CommandAction,
         Default,
     }
 
@@ -43,6 +40,8 @@ public class CompanionAIContext : MonoBehaviour, MMEventListener<MMCompanionComm
         _character = GetComponent<Character>();
         behaviorTree = GetComponent<BehaviorTree>();
         _animator = GetComponent<Animator>();
+        CommandExecutor = GetComponent<CommandActionExecutor>();
+
     }
 
 
@@ -91,32 +90,31 @@ public class CompanionAIContext : MonoBehaviour, MMEventListener<MMCompanionComm
 
         switch (companionCommandEvent.EventType)
         {
-            case MMCompanionCommandEventTypes.MarkAction:
-                TryEnterMarkAcionState();
+            case MMCompanionCommandEventTypes.CommandAction:
+                TryEnterCommandAcionState();
                 break;
         }
     }
 
-    private void TryEnterMarkAcionState()
+    private void TryEnterCommandAcionState()
     {
         // 如果已經在標記動作狀態中，換言之進行標記動作的過程中又重複收到指令時，不打斷當前標記動作
-        if (CurrentBehaviorState == CompanionBehaviorState.MarkAction) return;
-
-        // 冷卻中則不允許進入狀態
-        if (IsMarkActionOnCooldown) return;
+        if (CurrentBehaviorState == CompanionBehaviorState.CommandAction) return;
 
         // 正式進入標記動作
-        UpdateCompanionBehaviorState(CompanionBehaviorState.MarkAction);
+        UpdateCompanionBehaviorState(CompanionBehaviorState.CommandAction);
     }
 
     public void OnMMEvent(MMCompanionActionEvent actionEvent)
     {
         switch (actionEvent.EventType)
         {
-            case MMCompanionActionEventTypes.OnMarkActionStart:
+            case MMCompanionActionEventTypes.OnCommandActionStart:
+                CommandExecutor?.TryExecute();
                 break;
 
-            case MMCompanionActionEventTypes.OnMarkActionEnd:
+            case MMCompanionActionEventTypes.OnCommandActionEnd:
+                UpdateCompanionBehaviorState(CompanionBehaviorState.Default);
                 break;
 
             default:
@@ -131,23 +129,6 @@ public class CompanionAIContext : MonoBehaviour, MMEventListener<MMCompanionComm
         {
             behaviorTree.SetVariableValue(variableName, value);
         }
-    }
-
-
-
-
-    public void TriggerMarkActionCooldown()
-    {
-        if (IsMarkActionOnCooldown) return;
-
-        IsMarkActionOnCooldown = true;
-        StartCoroutine(MarkActionCooldownCoroutine());
-    }
-
-    private IEnumerator MarkActionCooldownCoroutine()
-    {
-        yield return new WaitForSeconds(MarkActionCooldownDuration);
-        IsMarkActionOnCooldown = false;
     }
 
     public void UpdateCompanionBehaviorState(CompanionBehaviorState newState)
@@ -165,9 +146,8 @@ public class CompanionAIContext : MonoBehaviour, MMEventListener<MMCompanionComm
                     break;
 
 
-                case CompanionBehaviorState.MarkAction:
-                    SyncBehaviorTreeVariable("CurrentBehaviorState", CompanionBehaviorState.MarkAction);
-                    TriggerMarkActionCooldown();
+                case CompanionBehaviorState.CommandAction:
+                    SyncBehaviorTreeVariable("CurrentBehaviorState", CompanionBehaviorState.CommandAction);                    
                     break;
 
                 case CompanionBehaviorState.Default:
@@ -190,7 +170,7 @@ public class CompanionAIContext : MonoBehaviour, MMEventListener<MMCompanionComm
                 break;
 
 
-            case CompanionBehaviorState.MarkAction:
+            case CompanionBehaviorState.CommandAction:
                 break;
 
 

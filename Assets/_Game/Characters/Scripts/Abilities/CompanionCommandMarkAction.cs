@@ -19,6 +19,6 @@ public class CompanionCommandMarkAction : CompanionCommand
     {
         base.TriggerCommand();
         Debug.Log("標記動作命令");
-        MMCompanionCommandEvent.Trigger(_character, MMCompanionCommandEventTypes.MarkAction);
+        MMCompanionCommandEvent.Trigger(_character, MMCompanionCommandEventTypes.CommandAction);
     }
 }

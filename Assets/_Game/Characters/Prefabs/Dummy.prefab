@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 210605697109731884}
   - component: {fileID: 61063304230422582}
   - component: {fileID: 114186989754477336}
-  - component: {fileID: -118131558868727375}
+  - component: {fileID: 9042576772778087811}
   m_Layer: 13
   m_Name: Dummy
   m_TagString: Enemy
@@ -186,7 +186,7 @@ MonoBehaviour:
   ObstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &-118131558868727375
+--- !u!114 &9042576772778087811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,20 +195,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1790328835693532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 561a85385b980b34595f8e3e998ecc54, type: 3}
+  m_Script: {fileID: 11500000, guid: 01754710d9f92ec4d9a21b81f5682667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Model: {fileID: 0}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 10000
-  MaximumHealth: 10000
+  InitialHealth: 100
+  MaximumHealth: 100
   ResetHealthOnEnable: 1
   ImmuneToDamage: 0
   DamageMMFeedbacks: {fileID: 0}
   FeedbackIsProportionalToDamage: 0
   PreventTakeSelfDamage: 0
-  ImmuneToKnockback: 1
+  ImmuneToKnockback: 0
   ImmuneToKnockbackIfZeroDamage: 0
   KnockbackForceMultiplier: 1
   DestroyOnDeath: 1

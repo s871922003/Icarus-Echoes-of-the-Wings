@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 1785330718100841805}
   - component: {fileID: 8219396737014388676}
   - component: {fileID: 5446911941094152042}
+  - component: {fileID: 8988730609253930436}
   m_Layer: 10
   m_Name: PrototypeCompanionAI_BehaviorDesigner
   m_TagString: Untagged
@@ -196,6 +197,7 @@ Transform:
   - {fileID: 8120188658855626799}
   - {fileID: 7022204540142713145}
   - {fileID: 8079266451881226064}
+  - {fileID: 6961785581019336119}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6609695996736802464
@@ -270,7 +272,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330232934344079362}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -353,7 +355,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330232934344079362}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01754710d9f92ec4d9a21b81f5682667, type: 3}
   m_Name: 
@@ -361,7 +363,7 @@ MonoBehaviour:
   Model: {fileID: 0}
   CurrentHealth: 100
   Invulnerable: 0
-  InitialHealth: 10
+  InitialHealth: 100
   MaximumHealth: 100
   ResetHealthOnEnable: 1
   ImmuneToDamage: 0
@@ -404,10 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviorTree: {fileID: 0}
-  MarkActionCooldownDuration: 1.5
   CurrentBehaviorState: 0
-  DebugMode: 0
-  _canPerformStaminaDrainedMoves: 1
 --- !u!114 &1785330718100841805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +435,7 @@ MonoBehaviour:
       parentIndex: 
       startIndex: 
       variableStartIndex: 
-      JSONSerialization: '{"Variables":[{"Type":"SharedCompanionAIContext","Name":"CompanionAIContext","IsShared":true,"CompanionAIContextmValue":0},{"Type":"SharedCharacter","Name":"ThisCharacter","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"ThisTransform","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"OwnerTransform","IsShared":true},{"Type":"SharedCharacter","Name":"OwnerCharacter","IsShared":true},{"Type":"SharedAnimator","Name":"Animator","IsShared":true},{"Type":"SharedWeaponLibrary","Name":"WeaponLibrary","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"CurrentTarget","IsShared":true},{"Type":"SharedCompanionBehaviorState","Name":"CurrentBehaviorState","IsShared":true,"CompanionBehaviorStatemValue":"None"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"FollowDistance","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"AttackDistance","IsShared":true,"SinglemValue":0}]}'
+      JSONSerialization: '{"Variables":[{"Type":"SharedCompanionAIContext","Name":"CompanionAIContext","IsShared":true,"CompanionAIContextmValue":0},{"Type":"SharedCharacter","Name":"ThisCharacter","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"ThisTransform","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"OwnerTransform","IsShared":true},{"Type":"SharedCharacter","Name":"OwnerCharacter","IsShared":true},{"Type":"SharedAnimator","Name":"Animator","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"CurrentTarget","IsShared":true},{"Type":"SharedCompanionBehaviorState","Name":"CurrentBehaviorState","IsShared":true,"CompanionBehaviorStatemValue":"None"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"FollowDistance","IsShared":true,"SinglemValue":0}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
@@ -475,6 +474,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Offset: {x: -1, y: 0, z: 0}
+--- !u!114 &8988730609253930436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330232934344079362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb892704af9ced4a9762ff9fdd07100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentCommandAction: {fileID: 11400000, guid: c4e3238e21b1d574a9d46cf6bbf377bb,
+    type: 2}
 --- !u!1 &5729754787667639280
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,7 +497,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7022204540142713145}
-  - component: {fileID: 2112568763694315576}
   - component: {fileID: 9049689783705588947}
   - component: {fileID: 4923900294976276271}
   m_Layer: 10
@@ -509,66 +521,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 110590715465752919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2112568763694315576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5729754787667639280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cde870ae7090b974bb115e88bfbf8320, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityStartSfx: {fileID: 0}
-  AbilityInProgressSfx: {fileID: 0}
-  AbilityStopSfx: {fileID: 0}
-  AbilityStartFeedbacks: {fileID: 0}
-  AbilityStopFeedbacks: {fileID: 0}
-  AbilityPermitted: 1
-  BlockingMovementStates: 
-  BlockingConditionStates: 
-  BlockingWeaponStates: 
-  DashMode: 1
-  DashSpace: 0
-  DashDirection: {x: 0, y: 0, z: 1}
-  DashDistance: 6
-  DashDuration: 0.2
-  DashCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  Cooldown:
-    Unlimited: 0
-    ConsumptionDuration: 2
-    PauseOnEmptyDuration: 1
-    RefillDuration: 1
-    CanInterruptRefill: 1
-    CooldownState: 0
-    CurrentDurationLeft: 0
-  InvincibleWhileDashing: 0
-  DashFeedback: {fileID: 0}
 --- !u!114 &9049689783705588947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,6 +590,127 @@ MonoBehaviour:
   WalkParticles: []
   TouchTheGroundParticles: []
   TouchTheGroundSfx: []
+--- !u!1 &8351547265589069022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6961785581019336119}
+  - component: {fileID: 686661393645786044}
+  - component: {fileID: 5221903363738510461}
+  m_Layer: 10
+  m_Name: BodyDamageOnTouch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6961785581019336119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8351547265589069022}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 110590715465752919}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &686661393645786044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8351547265589069022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c412745091df8f945a5fd84d722dbc5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 8192
+  Owner: {fileID: 0}
+  TriggerFilter: 67
+  MinDamageCaused: 10
+  MaxDamageCaused: 10
+  TypedDamages: []
+  DamageDirectionMode: 1
+  DamageCausedKnockbackType: 1
+  DamageCausedKnockbackDirection: 0
+  DamageCausedKnockbackForce: {x: 10, y: 10, z: 10}
+  InvincibilityDuration: 0.5
+  RepeatDamageOverTime: 0
+  AmountOfRepeats: 3
+  DurationBetweenRepeats: 1
+  DamageOverTimeInterruptible: 1
+  RepeatedDamageType: {fileID: 0}
+  DamageTakenHealth: {fileID: 0}
+  DamageTakenEveryTime: 0
+  DamageTakenDamageable: 0
+  DamageTakenNonDamageable: 0
+  DamageTakenKnockbackType: 0
+  DamageTakenKnockbackForce: {x: 0, y: 0, z: 0}
+  DamageTakenInvincibilityDuration: 0.5
+  HitDamageableFeedback: {fileID: 0}
+  HitNonDamageableFeedback: {fileID: 0}
+  HitAnythingFeedback: {fileID: 0}
+  HitDamageableEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  HitNonDamageableEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  HitAnythingEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  PrecisionKnockbackForce: {x: 1000, y: 1000, z: 0}
+  PrecisionKnockbackDirection: 0
+  StartWithPrecisionActive: 0
+--- !u!58 &5221903363738510461
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8351547265589069022}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &9054439968966108863
 GameObject:
   m_ObjectHideFlags: 0
