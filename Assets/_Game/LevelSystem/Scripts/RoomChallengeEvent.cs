@@ -11,18 +11,16 @@ public enum MMRoomChallengeEventType
 public struct MMRoomChallengeEvent
 {
     public MMRoomChallengeEventType EventType;
-    public RoomType RoomType;
     public RoomChallengeTrigger Source;
 
-    public MMRoomChallengeEvent(MMRoomChallengeEventType eventType, RoomType roomType, RoomChallengeTrigger source)
+    public MMRoomChallengeEvent(MMRoomChallengeEventType eventType, RoomChallengeTrigger source)
     {
         EventType = eventType;
-        RoomType = roomType;
         Source = source;
     }
 
-    public static void Trigger(MMRoomChallengeEventType eventType, RoomType roomType, RoomChallengeTrigger source)
+    public static void Trigger(MMRoomChallengeEventType eventType, RoomChallengeTrigger source)
     {
-        MMEventManager.TriggerEvent(new MMRoomChallengeEvent(eventType, roomType, source));
+        MMEventManager.TriggerEvent(new MMRoomChallengeEvent(eventType, source));
     }
 }
