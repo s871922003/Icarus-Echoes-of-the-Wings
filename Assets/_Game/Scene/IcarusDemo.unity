@@ -814,9 +814,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d71a80d162eaf46835bdd9e7b84363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonActivatedRequirement: 0
-  RequiresPlayerType: 1
-  RequiresButtonActivationAbility: 1
+  ButtonActivatedRequirement: 3
+  RequiresPlayerType: 0
+  RequiresButtonActivationAbility: 0
   Activable: 1
   AutoActivation: 1
   AutoActivationDelay: 0
@@ -951,6 +951,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PrototypeCompanionAI_BehaviorDesigner
       objectReference: {fileID: 0}
+    - target: {fileID: 330232934344079362, guid: ee265b25d6fd05f4e8fb9de83d5ffc85,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 686661393645786044, guid: ee265b25d6fd05f4e8fb9de83d5ffc85,
         type: 3}
       propertyPath: DamageCausedKnockbackForce.x
@@ -970,6 +975,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ScriptDrivenInput
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8538927568165870706, guid: ee265b25d6fd05f4e8fb9de83d5ffc85,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7459,7 +7469,7 @@ PrefabInstance:
     - target: {fileID: 6921523487458178170, guid: f3cc9a2807e55b94c9a3d696599c8fc3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -7.999817
+      value: -7.999878
       objectReference: {fileID: 0}
     - target: {fileID: 7022582603908275429, guid: f3cc9a2807e55b94c9a3d696599c8fc3,
         type: 3}
