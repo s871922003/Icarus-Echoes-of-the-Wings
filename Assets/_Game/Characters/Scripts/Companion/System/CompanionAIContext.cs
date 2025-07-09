@@ -16,6 +16,7 @@ public class CompanionAIContext : MonoBehaviour, MMEventListener<MMCompanionComm
     private Animator _animator;
     public CommandActionExecutor CommandExecutor { get; private set; }
 
+    public bool CanDoDefaultBehavior = true;
 
     public CompanionBehaviorState CurrentBehaviorState;
     CompanionBehaviorState LastBehaviorState;
@@ -41,7 +42,6 @@ public class CompanionAIContext : MonoBehaviour, MMEventListener<MMCompanionComm
         behaviorTree = GetComponent<BehaviorTree>();
         _animator = GetComponent<Animator>();
         CommandExecutor = GetComponent<CommandActionExecutor>();
-
     }
 
 
@@ -114,7 +114,7 @@ public class CompanionAIContext : MonoBehaviour, MMEventListener<MMCompanionComm
                 break;
 
             case MMCompanionActionEventTypes.OnCommandActionEnd:
-                UpdateCompanionBehaviorState(CompanionBehaviorState.Default);
+                StartCoroutine(WaitToResumeDefaultBehavior());
                 break;
 
             default:
@@ -122,6 +122,17 @@ public class CompanionAIContext : MonoBehaviour, MMEventListener<MMCompanionComm
                 break;
         }
     }
+
+    private IEnumerator WaitToResumeDefaultBehavior()
+    {
+        while (!CanDoDefaultBehavior)
+        {
+            yield return null; // 每幀等待直到能恢復預設行為
+        }
+
+        UpdateCompanionBehaviorState(CompanionBehaviorState.Default);
+    }
+
 
     protected void SyncBehaviorTreeVariable(string variableName, object value)
     {

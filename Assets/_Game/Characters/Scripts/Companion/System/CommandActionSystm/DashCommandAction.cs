@@ -6,14 +6,15 @@ using System.Collections;
 public class DashCommandAction : CommandAction
 {
     [Header("衝刺設定")]
-    public float DashDuration = 0.2f;
     public float DashDistance = 6f;
-    public AnimationCurve DashCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
+    public float DashSpeed = 15f;
+    //public AnimationCurve DashCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
     [Header("冷卻條件")]
     [SerializeField] private float ReturnThreshold = 0.1f;
 
     private bool _canExecute = true;
+    private CharacterMovement _characterMovement;
 
     public override bool CanExecute()
     {
@@ -31,12 +32,12 @@ public class DashCommandAction : CommandAction
 
     public override void Execute()
     {
+        AIContext.CanDoDefaultBehavior = false;
         _canExecute = false;
 
         Vector3 origin = AIContext.transform.position;
         Vector3 targetPos = GetMouseWorldPosition();
         Vector3 direction = (targetPos - origin).normalized;
-        Vector3 dashDestination = origin + direction * DashDistance;
 
         DamageOnTouch damageOnTouch = AIContext.GetComponentInChildren<DamageOnTouch>(true);
         if (damageOnTouch != null)
@@ -44,23 +45,39 @@ public class DashCommandAction : CommandAction
             damageOnTouch.gameObject.SetActive(true);
         }
 
-        AIContext.CommandExecutor.StartCoroutine(DashRoutine(origin, dashDestination, damageOnTouch));
+        _characterMovement = AIContext.GetComponent<Character>()?.FindAbility<CharacterMovement>();
+        if (_characterMovement == null)
+        {
+            Debug.LogWarning("[DashCommandAction] 無法找到 CharacterMovement");
+            return;
+        }
+
+        AIContext.CommandExecutor.StartCoroutine(DashRoutine(direction, damageOnTouch));
     }
 
-    private IEnumerator DashRoutine(Vector3 origin, Vector3 destination, DamageOnTouch damageOnTouch)
+    private IEnumerator DashRoutine(Vector3 direction, DamageOnTouch damageOnTouch)
     {
+        float distanceTraveled = 0f;
+        float maxDuration = DashDistance / DashSpeed * 2f; // 保護時間
         float timer = 0f;
-        Transform characterTransform = AIContext.transform;
 
-        while (timer < DashDuration)
+        _characterMovement.ScriptDrivenInput = true;
+        _characterMovement.SetMovement(Vector2.zero);
+        _characterMovement.MovementSpeed = 0f;
+
+        Vector3 previousPosition = AIContext.transform.position;
+
+        while (distanceTraveled < DashDistance && timer < maxDuration)
         {
-            float normalizedTime = timer / DashDuration;
-            float ratio = DashCurve.Evaluate(normalizedTime);
-            Vector3 newPos = Vector3.Lerp(origin, destination, ratio);
-            characterTransform.position = newPos;
+            _characterMovement.MovementSpeed = DashSpeed;
+            _characterMovement.SetMovement(direction);
 
-            timer += Time.deltaTime;
             yield return null;
+
+            Vector3 currentPosition = AIContext.transform.position;
+            distanceTraveled += Vector3.Distance(currentPosition, previousPosition);
+            previousPosition = currentPosition;
+            timer += Time.deltaTime;
         }
 
         if (damageOnTouch != null)
@@ -68,8 +85,14 @@ public class DashCommandAction : CommandAction
             damageOnTouch.gameObject.SetActive(false);
         }
 
+        _characterMovement.SetMovement(Vector2.zero);
+        _characterMovement.ScriptDrivenInput = false;
+        _characterMovement.ResetSpeed();
+
+        AIContext.CanDoDefaultBehavior = true;
         ResetExecution();
     }
+
 
     public override void UpdateCooldown(float deltaTime) { }
 
