@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 114186989754477336}
   - component: {fileID: 114871673569860628}
   - component: {fileID: 1811870650849480900}
+  - component: {fileID: 6244523701213772391}
   m_Layer: 10
   m_Name: PrototypeCharacter2D_CompanionCommander
   m_TagString: Player
@@ -255,6 +256,22 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
+--- !u!114 &6244523701213772391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790328835693532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83bbaa401daf130408fd30b6c2e97ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  companionPrefab: {fileID: 330232934344079362, guid: ee265b25d6fd05f4e8fb9de83d5ffc85,
+    type: 3}
+  companionSpawnOffset: {x: 1, y: 0, z: 0}
+  autoInitialize: 1
 --- !u!1 &1997364199477008
 GameObject:
   m_ObjectHideFlags: 0

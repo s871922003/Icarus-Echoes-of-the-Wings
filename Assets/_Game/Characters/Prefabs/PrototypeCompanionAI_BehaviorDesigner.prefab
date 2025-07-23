@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8079266451881226064
 Transform:
   m_ObjectHideFlags: 0
@@ -174,9 +174,10 @@ GameObject:
   - component: {fileID: 8219396737014388676}
   - component: {fileID: 5446911941094152042}
   - component: {fileID: 8988730609253930436}
+  - component: {fileID: 7980187741562709126}
   m_Layer: 10
   m_Name: PrototypeCompanionAI_BehaviorDesigner
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -272,7 +273,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330232934344079362}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -405,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9bd9e57b0b1e04d87c9782980d7abb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviorTree: {fileID: 0}
+  CanDoDefaultBehavior: 1
   CurrentBehaviorState: 0
 --- !u!114 &1785330718100841805
 MonoBehaviour:
@@ -488,6 +489,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentCommandAction: {fileID: 11400000, guid: c4e3238e21b1d574a9d46cf6bbf377bb,
     type: 2}
+--- !u!114 &7980187741562709126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330232934344079362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85189b79951f7c42a3b752f96ad305f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AIContext: {fileID: 4472633406915451721}
+  DashDistance: 6
+  DashColor: {r: 1, g: 0.2, b: 0, a: 0.4}
 --- !u!1 &5729754787667639280
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +515,7 @@ GameObject:
   - component: {fileID: 7022204540142713145}
   - component: {fileID: 9049689783705588947}
   - component: {fileID: 4923900294976276271}
+  - component: {fileID: 3730154731892085769}
   m_Layer: 10
   m_Name: Ability
   m_TagString: Untagged
@@ -590,6 +607,29 @@ MonoBehaviour:
   WalkParticles: []
   TouchTheGroundParticles: []
   TouchTheGroundSfx: []
+--- !u!114 &3730154731892085769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729754787667639280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87ffdd7d8febb24b817b1d3d350bef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityStartSfx: {fileID: 0}
+  AbilityInProgressSfx: {fileID: 0}
+  AbilityStopSfx: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 1
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  BlockingWeaponStates: 
+  PreventJumpInButtonActivatedZone: 1
+  ButtonActivatedZone: {fileID: 0}
 --- !u!1 &8351547265589069022
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6961785581019336119
 Transform:
   m_ObjectHideFlags: 0
@@ -646,7 +686,7 @@ MonoBehaviour:
   DamageDirectionMode: 1
   DamageCausedKnockbackType: 1
   DamageCausedKnockbackDirection: 0
-  DamageCausedKnockbackForce: {x: 10, y: 10, z: 10}
+  DamageCausedKnockbackForce: {x: 300, y: 300, z: 10}
   InvincibilityDuration: 0.5
   RepeatDamageOverTime: 0
   AmountOfRepeats: 3

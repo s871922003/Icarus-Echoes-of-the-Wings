@@ -35,6 +35,8 @@ public class EnemyAIContext : BaseAIContext
         }
 
         UpdateEnemyBehaviorState(EnemyBehaviorState.SearchingTarget);
+
+        Debug.Log($"maskInteraction = {GetComponentInChildren<SpriteRenderer>()?.maskInteraction}");
     }
 
     #region Target
