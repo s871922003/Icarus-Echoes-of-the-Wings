@@ -294,44 +294,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 064bed4d252c8da4390f037ba607c672, type: 2}
   - {fileID: 11400000, guid: 7a0eb70f413babc4fa595983c002ab90, type: 2}
   currentIndex: 0
-  challengeStartPosition: {fileID: 381211780}
-  challengeRoom: {fileID: 861923065526560242}
-  faderID: 0
-  fadeOutDuration: 0.2
-  delayBetweenFades: 0.3
-  fadeInDuration: 0.2
-  fadeTween:
-    MMTweenDefinitionType: 0
-    MMTweenCurve: 4
-    Curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    Initialized: 0
-    ConditionPropertyName: 
-    EnumConditionPropertyName: 
-    EnumConditions: 0000000000000000000000000000000000000000000000000000000000000000
-  fadeIgnoresTimescale: 0
   OnLevelChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8548,17 +8510,17 @@ PrefabInstance:
     - target: {fileID: 8442542216408561346, guid: f3cc9a2807e55b94c9a3d696599c8fc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.9
+      value: 31.254993
       objectReference: {fileID: 0}
     - target: {fileID: 8442542216408561346, guid: f3cc9a2807e55b94c9a3d696599c8fc3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.9
+      value: -2.7800002
       objectReference: {fileID: 0}
     - target: {fileID: 8442542216408561346, guid: f3cc9a2807e55b94c9a3d696599c8fc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.06
+      value: -13.559999
       objectReference: {fileID: 0}
     - target: {fileID: 8576152876553941553, guid: f3cc9a2807e55b94c9a3d696599c8fc3,
         type: 3}

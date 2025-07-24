@@ -18,18 +18,33 @@ public class CameraBasedEnemySpawnLayer : ChallengeSpawnLayer
     [System.Serializable]
     public class EnemySpawnWave
     {
+        [Tooltip("波次名稱，僅供設計時參考，無實際功能")]
         public string WaveName;
+
+        [Tooltip("波次說明，供設計時理解此波次作用")]
+        [TextArea]
         public string Description;
+
+        [Tooltip("波次開始時間（秒），生成系統啟動後經過這個秒數時啟動此波次")]
         public float StartTime;
-        public float EndTime;
+
+        [Tooltip("波次持續時間（秒），從開始起持續多久進行生怪邏輯")]
+        public float Duration;
+
+        [Tooltip("此波次會隨機從這些敵人中進行生成，依照權重決定機率")]
         public List<WeightedEnemyEntry> EnemyPrefabs;
-        public int SpawnCount = 5;
+
+        [Tooltip("每次生成間隔內要生成的敵人數量")]
+        public int SpawnPerInterval = 5;
+
+        [Tooltip("每次生成後等待的秒數，然後再嘗試生成下一批")]
         public float SpawnInterval = 1f;
-        public bool Loop = false;
+
+        [Tooltip("該波次所生成的敵人最大同時存活數量，設為 -1 代表無上限")]
         public int MaxConcurrentEnemies = 20;
+
+        [Tooltip("每次生成中允許使用的最大生成點數量（螢幕邊緣隨機位置）")]
         public int SpawnPointsPerInterval = 1;
-        public Vector2 SpawnPositionJitterMin;
-        public Vector2 SpawnPositionJitterMax;
     }
 
     [Header("敵人波次設定")]
@@ -38,10 +53,28 @@ public class CameraBasedEnemySpawnLayer : ChallengeSpawnLayer
     [Header("生成參數")]
     public float SpawnDistanceFromView = 2f;
 
+    [Header("Z 軸修正")]
+    [Tooltip("是否強制使用固定 Z 軸，而不是依據攝影機位置推算")]
+    public bool UseFixedZ = false;
+
+    [Tooltip("如果啟用固定 Z 軸，敵人會以這個值作為 Z")]
+    public float FixedSpawnZ = 0f;
+
+    [Tooltip("如果未啟用固定 Z 軸，會以攝影機位置 + 此值作為 Z")]
+    public float SpawnZOffset = 0f;
+
     protected List<GameObject> _spawnedEnemies = new List<GameObject>();
     protected Coroutine _spawnRoutine;
     protected bool _isSpawning = false;
     protected float _elapsedTime = 0f;
+
+    private void Update()
+    {
+        if (_isSpawning)
+        {
+            _elapsedTime += Time.deltaTime;
+        }
+    }
 
     protected override void OnStartSpawning()
     {
@@ -65,11 +98,11 @@ public class CameraBasedEnemySpawnLayer : ChallengeSpawnLayer
     protected override void OnClearAllSpawned()
     {
         Debug.Log("[CameraBasedEnemySpawnLayer] 清除所有已生成敵人");
-        for (int i = _spawnedEnemies.Count - 1; i >= 0; i--)
+        foreach (var enemy in _spawnedEnemies)
         {
-            if (_spawnedEnemies[i] != null)
+            if (enemy != null)
             {
-                Destroy(_spawnedEnemies[i]);
+                Destroy(enemy);
             }
         }
         _spawnedEnemies.Clear();
@@ -77,67 +110,64 @@ public class CameraBasedEnemySpawnLayer : ChallengeSpawnLayer
 
     protected IEnumerator SpawnWavesCoroutine()
     {
-        Debug.Log("[CameraBasedEnemySpawnLayer] 開始波次協程");
-        while (_isSpawning)
+        List<Coroutine> activeCoroutines = new List<Coroutine>();
+
+        foreach (var wave in Waves)
         {
-            _elapsedTime += Time.deltaTime;
+            Coroutine coroutine = StartCoroutine(RunWaveCoroutine(wave));
+            activeCoroutines.Add(coroutine);
+        }
 
-            foreach (var wave in Waves)
-            {
-                if (_elapsedTime >= wave.StartTime && _elapsedTime <= wave.EndTime)
-                {
-                    Debug.Log($"[Wave] 開始執行波次: {wave.WaveName}");
-                    yield return StartCoroutine(SpawnWave(wave));
-                }
-            }
-
-            yield return null;
+        foreach (var co in activeCoroutines)
+        {
+            yield return co;
         }
     }
 
-    protected IEnumerator SpawnWave(EnemySpawnWave wave)
+    protected IEnumerator RunWaveCoroutine(EnemySpawnWave wave)
     {
-        int spawned = 0;
+        yield return new WaitUntil(() => _elapsedTime >= wave.StartTime);
+        Debug.Log($"[Wave] 啟動: {wave.WaveName}");
 
-        do
+        float waveEndTime = _elapsedTime + wave.Duration;
+
+        while (_isSpawning && _elapsedTime <= waveEndTime)
         {
-            while (_isSpawning && spawned < wave.SpawnCount)
+            _spawnedEnemies.RemoveAll(e => e == null);
+
+            if (wave.MaxConcurrentEnemies > 0 && _spawnedEnemies.Count >= wave.MaxConcurrentEnemies)
             {
-                _spawnedEnemies.RemoveAll(e => e == null);
-                if (wave.MaxConcurrentEnemies > 0 && _spawnedEnemies.Count >= wave.MaxConcurrentEnemies)
-                {
-                    yield return null;
-                    continue;
-                }
-
-                List<Vector3> spawnPositions = GetRandomScreenEdgePositions(wave.SpawnPointsPerInterval);
-                int countPerPoint = Mathf.CeilToInt((float)wave.SpawnCount / spawnPositions.Count);
-
-                foreach (Vector3 position in spawnPositions)
-                {
-                    for (int j = 0; j < countPerPoint && spawned < wave.SpawnCount; j++)
-                    {
-                        GameObject prefab = GetRandomEnemy(wave.EnemyPrefabs);
-                        if (prefab != null)
-                        {
-                            Vector2 jitter = GetRandomJitter(wave.SpawnPositionJitterMin, wave.SpawnPositionJitterMax);
-                            Vector3 spawnPosition = position + (Vector3)jitter;
-
-                            GameObject enemy = Instantiate(prefab, spawnPosition, Quaternion.identity);
-                            Debug.Log($"[Enemy Spawned] 位置: {spawnPosition}, Prefab: {prefab.name}");
-                            _spawnedEnemies.Add(enemy);
-                            spawned++;
-                        }
-                    }
-                }
-
-                yield return new WaitForSeconds(wave.SpawnInterval);
+                yield return null;
+                continue;
             }
 
-            if (!wave.Loop) break;
-            spawned = 0;
+            List<Vector3> spawnPositions = GetRandomScreenEdgePositions(wave.SpawnPointsPerInterval);
+            int countPerPoint = Mathf.CeilToInt((float)wave.SpawnPerInterval / spawnPositions.Count);
+            int spawnedThisRound = 0;
 
-        } while (_isSpawning);
+            foreach (Vector3 position in spawnPositions)
+            {
+                for (int j = 0; j < countPerPoint && spawnedThisRound < wave.SpawnPerInterval; j++)
+                {
+                    if (wave.MaxConcurrentEnemies > 0 && _spawnedEnemies.Count >= wave.MaxConcurrentEnemies)
+                        break;
+
+                    GameObject prefab = GetRandomEnemy(wave.EnemyPrefabs);
+                    if (prefab != null)
+                    {
+                        Vector3 spawnPosition = position;
+                        GameObject enemy = Instantiate(prefab, spawnPosition, Quaternion.identity);
+                        Debug.Log($"[Enemy Spawned] {wave.WaveName} at {spawnPosition} using {prefab.name}");
+                        _spawnedEnemies.Add(enemy);
+                        spawnedThisRound++;
+                    }
+                }
+            }
+
+            yield return new WaitForSeconds(wave.SpawnInterval);
+        }
+
+        Debug.Log($"[Wave] 結束: {wave.WaveName}");
     }
 
     protected GameObject GetRandomEnemy(List<WeightedEnemyEntry> entries)
@@ -145,10 +175,7 @@ public class CameraBasedEnemySpawnLayer : ChallengeSpawnLayer
         if (entries == null || entries.Count == 0) return null;
 
         int totalWeight = 0;
-        foreach (var entry in entries)
-        {
-            totalWeight += entry.Weight;
-        }
+        foreach (var entry in entries) totalWeight += entry.Weight;
 
         int roll = Random.Range(0, totalWeight);
         int current = 0;
@@ -156,27 +183,17 @@ public class CameraBasedEnemySpawnLayer : ChallengeSpawnLayer
         foreach (var entry in entries)
         {
             current += entry.Weight;
-            if (roll < current)
-            {
-                return entry.EnemyPrefab;
-            }
+            if (roll < current) return entry.EnemyPrefab;
         }
 
         return entries[entries.Count - 1].EnemyPrefab;
     }
 
-    protected Vector2 GetRandomJitter(Vector2 min, Vector2 max)
-    {
-        float x = Random.Range(min.x, max.x);
-        float y = Random.Range(min.y, max.y);
-        return new Vector2(x, y);
-    }
-
-    protected List<Vector3> GetRandomScreenEdgePositions(int count)
+    protected virtual List<Vector3> GetRandomScreenEdgePositions(int count)
     {
         List<Vector3> positions = new List<Vector3>();
-
         Camera cam = Camera.main;
+
         if (cam == null)
         {
             Debug.LogWarning("[CameraBasedEnemySpawnLayer] 找不到 MainCamera");
@@ -191,25 +208,18 @@ public class CameraBasedEnemySpawnLayer : ChallengeSpawnLayer
         for (int i = 0; i < count; i++)
         {
             int edge = Random.Range(0, 4);
-            Vector3 pos = Vector3.zero;
-
-            switch (edge)
+            Vector3 pos = edge switch
             {
-                case 0: // 上
-                    pos = new Vector3(Random.Range(-camWidth / 2f, camWidth / 2f), camHeight / 2f + dist, 0);
-                    break;
-                case 1: // 下
-                    pos = new Vector3(Random.Range(-camWidth / 2f, camWidth / 2f), -camHeight / 2f - dist, 0);
-                    break;
-                case 2: // 左
-                    pos = new Vector3(-camWidth / 2f - dist, Random.Range(-camHeight / 2f, camHeight / 2f), 0);
-                    break;
-                case 3: // 右
-                    pos = new Vector3(camWidth / 2f + dist, Random.Range(-camHeight / 2f, camHeight / 2f), 0);
-                    break;
-            }
+                0 => new Vector3(Random.Range(-camWidth / 2f, camWidth / 2f), camHeight / 2f + dist, 0),
+                1 => new Vector3(Random.Range(-camWidth / 2f, camWidth / 2f), -camHeight / 2f - dist, 0),
+                2 => new Vector3(-camWidth / 2f - dist, Random.Range(-camHeight / 2f, camHeight / 2f), 0),
+                3 => new Vector3(camWidth / 2f + dist, Random.Range(-camHeight / 2f, camHeight / 2f), 0),
+                _ => Vector3.zero,
+            };
 
-            positions.Add(center + pos);
+            Vector3 worldPosition = center + pos;
+            worldPosition.z = UseFixedZ ? FixedSpawnZ : cam.transform.position.z + SpawnZOffset;
+            positions.Add(worldPosition);
         }
 
         return positions;

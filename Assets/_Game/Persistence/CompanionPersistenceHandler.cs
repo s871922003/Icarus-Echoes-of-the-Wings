@@ -2,7 +2,7 @@ using UnityEngine;
 using MoreMountains.TopDownEngine;
 
 /// <summary>
-/// 夥伴角色的跨場景存續處理器，會在轉場前自動下馬（如果正在騎乘）
+/// 夥伴角色的跨場景存續處理器
 /// </summary>
 public class CompanionPersistenceHandler : CharacterPersistenceHandler
 {

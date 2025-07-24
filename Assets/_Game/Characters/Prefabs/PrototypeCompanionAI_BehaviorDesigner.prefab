@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356ebaf40b6337440b9f9d9fcb3de87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Offset: {x: -1, y: 0, z: 0}
+  Offset: {x: -3, y: 0, z: 0}
 --- !u!114 &8988730609253930436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 5436824106838592119}
   m_Layer: 10
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: NoMask
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

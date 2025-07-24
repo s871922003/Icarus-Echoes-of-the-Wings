@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed2cb0821fb8264387b0be940c72a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StatsData: {fileID: 11400000, guid: cee299495af7b7542b5cf365060cc5b5, type: 2}
+  StatsData: {fileID: 11400000, guid: 67d98713f05017b44bce986370e2ef75, type: 2}
 --- !u!114 &4007957585152939507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,7 +414,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8758117652801419093}
   - component: {fileID: 4676267228377639308}
-  - component: {fileID: 3932992368874729746}
   m_Layer: 13
   m_Name: Model
   m_TagString: Untagged
@@ -492,20 +491,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3932992368874729746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6425125603054927329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a077d59391dc9c4b914888be92e2e2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DesiredInteraction: 1
-  FixOnStart: 1
 --- !u!1 &8634852942915873059
 GameObject:
   m_ObjectHideFlags: 0
