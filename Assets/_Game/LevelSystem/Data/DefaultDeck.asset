@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce3fe2943a12bb4a8a7f3f37bf93884, type: 3}
+  m_Name: DefaultDeck
+  m_EditorClassIdentifier: 
+  ConfigurationName: 
+  Modules:
+  - ID: Test Deco 1
+    GridPosition: {x: 0, y: 0}
+    Prefab: {fileID: 118076, guid: a89c4d95a126f9840a258acc0b180dd5, type: 3}
+  - ID: Test Deco 2
+    GridPosition: {x: 1, y: 0}
+    Prefab: {fileID: 651471941252456290, guid: 108eb89c2dad8e449994406209b2e894, type: 3}

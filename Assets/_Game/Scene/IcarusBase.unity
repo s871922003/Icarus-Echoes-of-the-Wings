@@ -989,27 +989,20 @@ MonoBehaviour:
   - WaveName: "\u9810\u71B1\u6CE2"
     Description: "\u73A9\u5BB6\u525B\u9032\u5230\u5834\u5730\u5167\uFF0C\u5148\u4F86\u5E7E\u96BB\u602A"
     StartTime: 0
-    EndTime: 30
+    Duration: 0
     EnemyPrefabs:
     - EnemyPrefab: {fileID: 2599563088738164958, guid: 819b30c8572bc4d41bf9c2d4c1e883bf,
         type: 3}
       Weight: 1
-    SpawnCount: 1
+    SpawnPerInterval: 5
     SpawnInterval: 2
-    Loop: 0
     MaxConcurrentEnemies: -1
-    SpawnPoints:
-    - {fileID: 501028967}
-    - {fileID: 532282416}
-    - {fileID: 1482673265}
-    - {fileID: 1466532996}
-    - {fileID: 1563163072}
-    - {fileID: 2029513423}
-    - {fileID: 1034306550}
-    - {fileID: 1727895224}
     SpawnPointsPerInterval: 1
-    SpawnPositionJitterMin: {x: 0, y: 0}
-    SpawnPositionJitterMax: {x: 0, y: 0}
+  SpawnDistanceFromView: 2
+  UseFixedZ: 0
+  FixedSpawnZ: 0
+  SpawnZOffset: 0
+  SpawnPoints: []
 --- !u!4 &949204754
 Transform:
   m_ObjectHideFlags: 0
@@ -1055,6 +1048,52 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 816720629}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1091972108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1091972110}
+  - component: {fileID: 1091972109}
+  m_Layer: 0
+  m_Name: DeckGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1091972109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091972108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5c33924a8bad3541bbf9d7b53848d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeckAnchor: {fileID: 1833258589}
+--- !u!4 &1091972110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091972108}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1833258589}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1135844594
 GameObject:
@@ -1195,6 +1234,52 @@ Transform:
   m_Children:
   - {fileID: 356671232}
   m_Father: {fileID: 498568962}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1167219335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1167219337}
+  - component: {fileID: 1167219336}
+  m_Layer: 0
+  m_Name: DeckConfigurationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1167219336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167219335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0760b9cb891b5204faf9f38ef05bb767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultConfiguration: {fileID: 11400000, guid: a90a3a20023fbc44083a18ea2c0a75bb,
+    type: 2}
+--- !u!4 &1167219337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167219335}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1178112233
 GameObject:
@@ -1381,19 +1466,19 @@ MonoBehaviour:
   - WaveName: "\u9810\u71B1\u6CE2"
     Description: 
     StartTime: 0
-    EndTime: 30
+    Duration: 0
     EnemyPrefabs:
     - EnemyPrefab: {fileID: 2599563088738164958, guid: 819b30c8572bc4d41bf9c2d4c1e883bf,
         type: 3}
       Weight: 1
-    SpawnCount: 1
+    SpawnPerInterval: 5
     SpawnInterval: 1
-    Loop: 0
     MaxConcurrentEnemies: 1
     SpawnPointsPerInterval: 1
-    SpawnPositionJitterMin: {x: 0, y: 0}
-    SpawnPositionJitterMax: {x: 0, y: 0}
   SpawnDistanceFromView: 2
+  UseFixedZ: 0
+  FixedSpawnZ: 0
+  SpawnZOffset: 0
 --- !u!1 &1272739857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1966,6 +2051,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 62042951}
   displayRenderer: {fileID: 2096138300}
+--- !u!1 &1833258588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1833258589}
+  m_Layer: 0
+  m_Name: DeckCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1833258589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833258588}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1091972110}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &1925495463
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -8510,7 +8626,7 @@ PrefabInstance:
     - target: {fileID: 8442542216408561346, guid: f3cc9a2807e55b94c9a3d696599c8fc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.254993
+      value: -10.77
       objectReference: {fileID: 0}
     - target: {fileID: 8442542216408561346, guid: f3cc9a2807e55b94c9a3d696599c8fc3,
         type: 3}
@@ -17121,3 +17237,5 @@ SceneRoots:
   - {fileID: 3433521359544189222}
   - {fileID: 8134111323235922574}
   - {fileID: 62042952}
+  - {fileID: 1167219337}
+  - {fileID: 1091972110}
